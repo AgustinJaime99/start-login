@@ -8,3 +8,5 @@ export const Post = async (endpoint = '', data) => {
         console.log(error);
     }
 }
+
+export const URL_API = "https://api-flordeemprendedora.start-7.com/api/auth/login/"

@@ -7,7 +7,6 @@ function App() {
   return (
     <div class="d-md-flex h-md-100 align-items-center">
 
-
       <LoginContainer class="col-md-6 p-0 bg-white h-md-100">
         <Login />
       </LoginContainer>
@@ -19,7 +18,6 @@ function App() {
       </div>
 
     </div>
-
   );
 }
 
@@ -34,7 +32,5 @@ const LoginContainer = styled.div`
       width: auto;
     }
 `
-
-
 
 export default App;

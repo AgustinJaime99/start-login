@@ -5,7 +5,7 @@ import GoogleIcon from '../assets/Icons/Google'
 import { useFormik } from "formik";
 import Swal from 'sweetalert2'
 import * as yup from "yup";
-import { Post } from '../../services/apiServices';
+import { Post, URL_API } from '../../services/apiServices';
 
 const validationSchema = yup.object({
     username: yup
@@ -18,7 +18,6 @@ const validationSchema = yup.object({
 });
 
 export const Login = () => {
-
     const formik = useFormik({
         initialValues: {
             username: "",
@@ -26,7 +25,7 @@ export const Login = () => {
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
-            Post("https://api-flordeemprendedora.start-7.com/api/auth/login/", values)
+            Post(URL_API, values)
                 .then(res => {
                     if (res.data) {
                         const token = res.data.token;
@@ -47,14 +46,11 @@ export const Login = () => {
 
     return (
         <div>
-
             <h1 class="text-info fw-bold">__</h1>
             <h1 class="text-info">Bem-vindo de volta!</h1>
             <Subtitle>
                 Estamos felizes que esteja de volta para retomar seus projetos no Projetolist
             </Subtitle>
-
-            {/* SECCION DE FORMULARIO */}
 
             <form onSubmit={formik.handleSubmit}>
                 <div class="mb-3">
@@ -86,15 +82,11 @@ export const Login = () => {
                 <div class="d-flex justify-content-end">
                     <a href="#" class="fs-6 text-info">Esqueceu sua senha?</a>
                 </div>
-
                 <div class="d-grid gap-2">
                     <Button class="btn btn-info" type=" ">Entrar</Button>
                 </div>
             </form>
 
-            {/* SECCION DE FORMULARIO */}
-
-            {/* footer section */}
             <FooterLogin>
                 <p class="fs-6 text-info">OU ENTRE COM</p>
                 <ButtonContainer>
